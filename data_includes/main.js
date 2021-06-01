@@ -157,12 +157,12 @@ Template( "items.csv" ,
                 .remove()
                 ,
                 newButton("q_button", "Resume the experiment.")
-                .print()
+                .center().print()
                 //.after( getText("warning") )
                 .wait(
                     getHtml("q1").test.complete()
                         .failure( getText("warning")
-                                    .print() ) 
+                                    .print() )
                 )
         ), clear(), //clear screen
         getVar('nTrial').test.is(v=>v===200) // the second question appears after 200 items (5 breaks)
@@ -187,7 +187,7 @@ Template( "items.csv" ,
                 .remove()
                 ,
                 newButton("q_button", "Resume the experiment.")
-                .print()
+                .center().print()
                 //.after( getText("warning") )
                 .wait(
                     getHtml("q2").test.complete()
@@ -263,4 +263,3 @@ newTrial("exit",
 ).setOption("hideProgressBar", true)
 
 SendResults("send")
-
