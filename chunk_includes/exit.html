@@ -1,0 +1,66 @@
+<div style="font-size: 22; width:50em; margin-top: 80px;
+    margin-left: 5em;">
+
+<script language="javascript" type="text/javascript">
+function randomString() {
+  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+  var string_length = 8;
+  var randomstring = '';
+  for (var i=0; i<string_length; i++) {
+    var rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum,rnum+1);
+  }
+  document.randform.randomfield.value = randomstring;
+}
+</script>
+
+<div style="font-size: 21; width: 50em;">
+    
+<h3 style="color:red;">The experiment is over. Thank you for your participation!</h3>
+
+<b style="font-size: 21;font-weight: bold;"> Final Steps - Link your AMT account and submit your results. </b>
+
+ <br>
+
+<table style="font-size: 20; font-weight: normal;">
+<tr>
+  <td colspan="1"> <b style="font-size: 20; font-weight: normal;"> 1. Please enter your Amazon worker ID: </b>
+</td>
+</tr>
+
+<tr>
+  <td colspan="1">
+    <textarea name="WorkerId" rows="1" cols="18"class="obligatory"></textarea> </td> </tr>
+
+<br>
+
+<tr>
+  <td colspan="1"> <b  style="font-size: 20; font-weight: normal;"> 2. Please press this button to generate a unique completion code:
+ </b> </td>
+ </tr>
+
+<tr>
+<td>
+<form name="randform">
+<input type="button" value="Create completion code" onClick="randomString();">&nbsp;
+<input type="text" name="randomfield" value="">
+</form>
+
+</td>
+</tr>
+
+
+<tr>
+  <td> <b  style="font-size: 20; font-weight: normal;"> 3. Please copy and paste the completion code in the box below.
+<br>This is to make sure it is in your clipboard so you can also paste it into the AMT page: </b> </td>
+</tr>
+<tr>
+  <td colspan="1">
+    <textarea name="copyCode" rows="1" cols="18" class="obligatory"></textarea>
+  </td>
+</tr>
+</table> </div>
+
+<p>
+<b  style="font-size: 20; font-weight: normal;"> 4. Please click the buttom below.
+This will <b  style="font-size: 20; font-weight: bold;"> send your results to the server. <br>
