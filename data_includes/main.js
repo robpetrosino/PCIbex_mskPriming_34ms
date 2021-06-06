@@ -137,7 +137,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q1", "question1.html")
                 //.cssContainer({"width":"720px"})
-                .center().print()
+                .print()
                 .log()
                 ,
                 newText("warning", "Please type an answer to continue.")
@@ -167,7 +167,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q2", "question2.html")
                 //.cssContainer({"width":"720px"})
-                .center().print()
+                .print()
                 .log()
                 ,
                 newText("warning2", "Please type an answer to continue.")
