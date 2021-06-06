@@ -1,5 +1,3 @@
-DebugOff()
-
 PennController.ResetPrefix(null) // Shorten command names (keep this line here))
 Sequence("consent", "instructions" , randomize("warmup"), "ready", randomize("experiment"), "exit", "send")
 
@@ -263,3 +261,5 @@ newTrial("exit",
 ).setOption("hideProgressBar", true)
 
 SendResults("send")
+
+DebugOff() // turn the debugger tool off
