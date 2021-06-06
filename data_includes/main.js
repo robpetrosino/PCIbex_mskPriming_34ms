@@ -193,11 +193,12 @@ Template( "items.csv" ,
                                     .print() )
                 )
         ), clear(), // clear screen
-        getVar("nTrial").test.is(v=>v>0&&v%40===0) // the break screen appears after 40 items
+        getVar("nTrial").test.is(v=>v>0 && v%40===0) // the break screen appears after 40 items
         .success(
             newHtml("break", "break.html")
                 //.cssContainer({"width":"720px"})
                 .print("center at 50vw","middle at 50vh")
+                .log()
                 ,
                 newKey("J").wait()
             )
