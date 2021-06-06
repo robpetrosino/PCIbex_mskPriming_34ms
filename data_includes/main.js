@@ -8,10 +8,10 @@ Header(/*void*/)
 // Consent form
 newTrial( "consent" ,
     newHtml("consent_form", "consent.html")
-        .log()
         .print()
+        .log()
     ,
-    newText("warning", "Please type an answer in the box to continue.")
+    newText("warning", "Please type fill out all items above to continue.")
         .color("red")
         .italic()
         //.css('position','absolute')
@@ -69,7 +69,7 @@ Template( "warmup.csv" ,
             .bold()
             .remove()
             ,
-            newButton("qw_button", "Resume the experiment.")
+            newButton("qw_button", "Next")
             .center()
             .print()
             //.after( getText("warning") )
@@ -137,7 +137,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q1", "question1.html")
                 //.cssContainer({"width":"720px"})
-                .print()
+                .center().print()
                 .log()
                 ,
                 newText("warning", "Please type an answer to continue.")
@@ -167,10 +167,10 @@ Template( "items.csv" ,
         .success(
             newHtml("q2", "question2.html")
                 //.cssContainer({"width":"720px"})
-                .print()
+                .center().print()
                 .log()
                 ,
-                newText("warning", "Please type an answer to continue.")
+                newText("warning2", "Please type an answer to continue.")
                 .color("red")
                 .italic()
                 .cssContainer({
@@ -189,7 +189,7 @@ Template( "items.csv" ,
                 //.after( getText("warning") )
                 .wait(
                     getHtml("q2").test.complete()
-                        .failure( getText("warning")
+                        .failure( getText("warning2")
                                     .print() )
                 )
         ), clear(), // clear screen
