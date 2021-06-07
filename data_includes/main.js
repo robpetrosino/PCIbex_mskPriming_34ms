@@ -116,6 +116,7 @@ newTrial("ready", //this trial routine and the next one needs to appear in the m
     newHtml("ready", "ready.html")
         //.cssContainer({"width":"720px"})
         .print("center at 50vw","middle at 50vh")
+        .log()
     ,
     newKey("J").wait()
 )
@@ -130,10 +131,10 @@ Template( "items.csv" ,
        defaultTimer.log().start().wait()
        ,
        // count the number of trials and show question and break screens after n trials
-       newVar("nTrial",0)
+       newVar("nTrial", 0)
        .global()
        .set(v=>v+1)
-       .test.is(v=>v===80) // the first question appears after 80 items (2 breaks)
+       .test.is(v=> v===80) // the first question appears after 80 items (2 breaks)
         .success(
             newHtml("q1", "question1.html")
                 //.cssContainer({"width":"720px"})
@@ -154,7 +155,7 @@ Template( "items.csv" ,
                 .bold()
                 .remove()
                 ,
-                newButton("q_button", "Resume the experiment.")
+                newButton("q1_button", "Resume the experiment.")
                 .center().print()
                 //.after( getText("warning") )
                 .wait(
@@ -163,7 +164,7 @@ Template( "items.csv" ,
                                     .print() )
                 )
         ), clear(), //clear screen
-        getVar('nTrial').test.is(v=>v===200) // the second question appears after 200 items (5 breaks)
+        getVar('nTrial').test.is(v=> v===200) // the second question appears after 200 items (5 breaks)
         .success(
             newHtml("q2", "question2.html")
                 //.cssContainer({"width":"720px"})
@@ -175,7 +176,7 @@ Template( "items.csv" ,
                 .italic()
                 .cssContainer({
                     "margin-top": "7px",
-                    position: "absolute",
+                    position: "relative",
                     left: "unset",
                     top: "unset",
                     height: 0,
@@ -184,7 +185,7 @@ Template( "items.csv" ,
                 .bold()
                 .remove()
                 ,
-                newButton("q_button", "Resume the experiment.")
+                newButton("q2_button", "Resume the experiment.")
                 .center().print()
                 //.after( getText("warning") )
                 .wait(
@@ -193,7 +194,7 @@ Template( "items.csv" ,
                                     .print() )
                 )
         ), clear(), // clear screen
-        getVar("nTrial").test.is(v=>v>0 && v%40===0) // the break screen appears after 40 items
+        getVar("nTrial").test.is(v=> v>0 && v<320 && v%40===0) // the break screen appears after every 40 items (but not at the end of the experiment)
         .success(
             newHtml("break", "break.html")
                 //.cssContainer({"width":"720px"})
