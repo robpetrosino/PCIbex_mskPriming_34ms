@@ -199,7 +199,8 @@ Template( "items.csv" ,
             newHtml("break", "break.html")
                 //.cssContainer({"width":"720px"})
                 .print("center at 50vw","middle at 50vh")
-                .log()
+                ,
+                newVar("breakTime").set(v=>Date.now()).log()
                 ,
                 newKey("J").wait()
             )
