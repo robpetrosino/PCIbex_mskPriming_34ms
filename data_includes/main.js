@@ -195,21 +195,24 @@ Template( "items.csv" ,
         ), clear(), // clear screen
         getVar("nTrial").test.is(v=> v>0 && v<320 && v%40===0) // the break screen appears after every 40 items (but not at the end of the experiment)
         .success(
+            newText("remainingTrials", "Number of words left: ")
+                .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
+                .after(newText()
+                          .text(getVar("nRemainingTrials")
+                              .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
+                              )
+                          .after(newText('totTrials', "/320")
+                              .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
+                            )
+                        )
+            ,
             newHtml("break", "break.html")
                 //.cssContainer({"width":"720px"})
                 .print("center at 50vw","middle at 50vh")
-                ,
-            newText("remaningTrials", "Number of words left: ")
-                .print()
-                .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
-                .after(newText()
-                          .text(getVar("nRemainingTrials"))
-                          .after(newText('totTrials', "/320"))
-                        )
+                .after(getText("remainingTrials"))
             ,
-            newVar("breakTime").set(v=>Date.now()).log()
-                ,
             newKey("J").wait()
+            newVar("breakTime").set(v=>Date.now()).log()
             )
        ,
        clear() // clear screen
