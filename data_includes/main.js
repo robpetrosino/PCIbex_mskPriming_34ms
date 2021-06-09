@@ -125,12 +125,13 @@ newTrial("ready", //this trial routine and the next one needs to appear in the m
 // Executing experiment from the csv table, where participants may or may not be divided into two groups
 Template( "items.csv" ,
     row => newTrial( "experiment" ,
-       defaultText.center().print("center at 50vw","middle at 50vh").log()
-       ,
        // Automatically start and wait for Timer elements when created, and log those events
        defaultTimer.log().start().wait()
        ,
-       // count the number of trials and show question and break screens after n trials
+      // count the number of trials and show question and break screens after n trials decrementally
+       newVar("nRemainingTrials", 320).global().set(v=> v-1)
+       ,
+        // count the number of trials and show question and break screens after n trials incrementally
        newVar("nTrial", 0)
        .global()
        .set(v=>v+1)
@@ -138,7 +139,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q1", "question1.html")
                 //.cssContainer({"width":"720px"})
-                .print()
+                .print("center at 50vw","middle at 50vh")
                 .log()
                 ,
                 newText("warning", "Please type an answer to continue.")
@@ -168,7 +169,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q2", "question2.html")
                 //.cssContainer({"width":"720px"})
-                .print()
+                .print("center at 50vw","middle at 50vh")
                 .log()
                 ,
                 newText("warning2", "Please type an answer to continue.")
@@ -200,9 +201,16 @@ Template( "items.csv" ,
                 //.cssContainer({"width":"720px"})
                 .print("center at 50vw","middle at 50vh")
                 ,
-                newVar("breakTime").set(v=>Date.now()).log()
+            newText("remaningTrials", "Number of words left: ")
+                .css({height:0, 'line-height':0})
+                .after(newText()
+                          .text(getVar("nRemainingTrials"))
+                          .newText('totTrials', "/320")
+                        )
+            ,
+            newVar("breakTime").set(v=>Date.now()).log()
                 ,
-                newKey("J").wait()
+            newKey("J").wait()
             )
        ,
        clear() // clear screen
@@ -210,15 +218,23 @@ Template( "items.csv" ,
        // Mask, shown on screen for 500ms
        newText("mask", "######"),
        newTimer("maskTimer", 500),
-       getText("mask").remove()
+       getText("mask")
+          .print("center at 50vw","middle at 50vh")
+          .log()
+          .remove()
        ,
        // Prime, shown on screen for 42ms
        newText("prime", row.prime),
        newTimer("primeTimer", 34),
-       getText("prime").remove()
+       getText("prime")
+          .print("center at 50vw","middle at 50vh")
+          .log()
+          .remove()
        ,
        // Target, shown on screen until F or J is pressed
-       newText("target",row.target),
+       newText("target",row.target)
+          .print("center at 50vw","middle at 50vh")
+          .log(),
        newKey("answerTarget", "fj").log().wait(),
        getText("target").remove()
     )
