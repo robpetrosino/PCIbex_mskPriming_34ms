@@ -199,9 +199,9 @@ Template( "items.csv" ,
                 .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic'})
                 .after(newText()
                           .text( getVar("nRemainingTrials"))
-                            .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: 50em, 'margin-left': 5em})
+                            .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: '50em', 'margin-left': '5em'})
                             .after(newText('totTrials', "/320")
-                                    .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: 50em, 'margin-left': 5em})
+                                    .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: '50em', 'margin-left': '5em'})
                                   )
                         )
             ,
