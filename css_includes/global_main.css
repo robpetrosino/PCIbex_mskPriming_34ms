@@ -2,8 +2,9 @@ body {
     color: white;
     font-family: Arial;
     background-color: grey;
-    margin-left: 0;
-    margin-top: 5em;
+    margin-left: 0px;
+    width: 100vw;
+    height: 100vh;
 }
 .lindent { margin-left: 5em; }
 .sending-results {

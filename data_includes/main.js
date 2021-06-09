@@ -23,6 +23,8 @@ newTrial( "consent" ,
         .print()
         .wait( getHtml("consent_form").test.complete()
                     .failure( getText("warning").print() ) )
+    ,
+    fullscreen() // switch to fullscreen mode
 ).setOption("hideProgressBar", true)
 
 newTrial("instructions" ,
@@ -255,6 +257,8 @@ Template( "items.csv" ,
 
 
 newTrial("exit",
+    exitFullscreen() // switch back to non-fullscreen mode
+    ,
     newHtml("exit", "exit.html")
         .print()
         .log()
