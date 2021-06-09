@@ -54,7 +54,7 @@ Template( "warmup.csv" ,
             .print("center at 50vw","middle at 50vh")
             .log()
             ,
-            newText("warning", "Please type an answer to continue.")
+            newText("wp_warning", "Please type an answer to continue.")
             .color("red")
             .italic()
             .cssContainer({
@@ -74,7 +74,7 @@ Template( "warmup.csv" ,
             //.after( getText("warning") )
             .wait(
                 getHtml("question_warmup").test.complete()
-                    .failure( getText("warning")
+                    .failure( getText("wp_warning")
                                 .print() )
                 )
         )
@@ -157,7 +157,6 @@ Template( "items.csv" ,
                 ,
                 newButton("q1_button", "Resume the experiment.")
                 .center().print()
-                //.after( getText("warning") )
                 .wait(
                     getHtml("q1").test.complete()
                         .failure( getText("warning")
@@ -201,6 +200,7 @@ Template( "items.csv" ,
                 .print("center at 50vw","middle at 50vh")
                 ,
             newText("remaningTrials", "Number of words left: ")
+                .print()
                 .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
                 .after(newText()
                           .text(getVar("nRemainingTrials"))
