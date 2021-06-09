@@ -205,7 +205,7 @@ Template( "items.csv" ,
                 .css({height:0, 'line-height':0, 'font-size': 20, 'font-style':italic})
                 .after(newText()
                           .text(getVar("nRemainingTrials"))
-                          .after(.newText('totTrials', "/320"))
+                          .after(newText('totTrials', "/320"))
                         )
             ,
             newVar("breakTime").set(v=>Date.now()).log()
