@@ -198,11 +198,11 @@ Template( "items.csv" ,
             newText("remainingTrials", "Number of words left: ")
                 .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
                 .after(newText()
-                          .text(getVar("nRemainingTrials")
-                              .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
+                          .text( getVar("nRemainingTrials")
+                          .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
                               )
-                          .after(newText('totTrials', "/320")
-                              .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
+                          .after(  newText('totTrials', "/320")
+                          .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
                             )
                         )
             ,
@@ -212,6 +212,7 @@ Template( "items.csv" ,
                 .after(getText("remainingTrials"))
             ,
             newKey("J").wait()
+            ,
             newVar("breakTime").set(v=>Date.now()).log()
             )
        ,
