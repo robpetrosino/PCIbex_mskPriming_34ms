@@ -51,7 +51,7 @@ Template( "warmup.csv" ,
         .success(
             newHtml("question_warmup", "question_warmup.html")
             //.cssContainer({"width":"720px"})
-            .print("center at 50vw","middle at 50vh")
+            .print()
             .log()
             ,
             newText("wp_warning", "Please type an answer to continue.")
@@ -138,7 +138,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q1", "question1.html")
                 //.cssContainer({"width":"720px"})
-                .print("center at 50vw","middle at 50vh")
+                .print()
                 .log()
                 ,
                 newText("warning", "Please type an answer to continue.")
@@ -167,7 +167,7 @@ Template( "items.csv" ,
         .success(
             newHtml("q2", "question2.html")
                 //.cssContainer({"width":"720px"})
-                .print("center at 50vw","middle at 50vh")
+                .print()
                 .log()
                 ,
                 newText("warning2", "Please type an answer to continue.")
