@@ -51,8 +51,7 @@ Template( "warmup.csv" ,
         .success(
             newHtml("question_warmup", "question_warmup.html")
             //.cssContainer({"width":"720px"})
-            .center()
-            .print()
+            .print("center at 50vw","middle at 50vh")
             .log()
             ,
             newText("warning", "Please type an answer to continue.")
@@ -216,20 +215,18 @@ Template( "items.csv" ,
        clear() // clear screen
        ,
        // Mask, shown on screen for 500ms
-       newText("mask", "######"),
-       newTimer("maskTimer", 500),
-       getText("mask")
+       newText("mask", "######")
           .print("center at 50vw","middle at 50vh")
-          .log()
-          .remove()
+          .log(),
+       newTimer("maskTimer", 500),
+       getText("mask").remove()
        ,
        // Prime, shown on screen for 42ms
-       newText("prime", row.prime),
-       newTimer("primeTimer", 34),
-       getText("prime")
+       newText("prime", row.prime)
           .print("center at 50vw","middle at 50vh")
-          .log()
-          .remove()
+          .log(),
+       newTimer("primeTimer", 34),
+       getText("prime").remove()
        ,
        // Target, shown on screen until F or J is pressed
        newText("target",row.target)
