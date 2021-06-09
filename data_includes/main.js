@@ -196,12 +196,12 @@ Template( "items.csv" ,
         getVar("nTrial").test.is(v=> v>0 && v<320 && v%40===0) // the break screen appears after every 40 items (but not at the end of the experiment)
         .success(
             newText("remainingTrials", "Number of words left: ")
-                .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic'})
+                .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', 'margin-left': '5em'})
                 .after(newText()
                           .text( getVar("nRemainingTrials"))
-                            .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: '50em', 'margin-left': '5em'})
+                            .css({'font-size': 22, 'font-style': 'italic'})
                             .after(newText('totTrials', "/320")
-                                    .css({height:0, 'line-height':0, 'font-size': 22, 'font-style': 'italic', width: '50em', 'margin-left': '5em'})
+                                    .css({'font-size': 22, 'font-style': 'italic'})
                                   )
                         )
             ,
@@ -281,4 +281,4 @@ newTrial("exit",
 
 SendResults("send")
 
-DebugOff() // turn the debugger tool off
+//DebugOff() // turn the debugger tool off
