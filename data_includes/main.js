@@ -202,7 +202,7 @@ Template( "items.csv" ,
                 .print("center at 50vw","middle at 50vh")
                 ,
             newText("remaningTrials", "Number of words left: ")
-                .css({height:0, 'line-height':0, 'font-size': 20, 'font-style':italic})
+                .css({height:0, 'line-height':0, 'font-size': 20, 'font-style': 'italic'})
                 .after(newText()
                           .text(getVar("nRemainingTrials"))
                           .after(newText('totTrials', "/320"))
