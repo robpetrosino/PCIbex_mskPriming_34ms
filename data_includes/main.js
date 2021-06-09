@@ -281,4 +281,4 @@ newTrial("exit",
 
 SendResults("send")
 
-//DebugOff() // turn the debugger tool off
+DebugOff() // turn the debugger tool off
